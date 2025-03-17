@@ -7,6 +7,7 @@ body {
     min-height: 100vh;
 }
 
+/* Header init */
 header {
     background-color: #333;
     color: #fff;
@@ -24,6 +25,95 @@ header {
 header .logo img {
     height: 50px;
 }
+
+.search-bar {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    height: 30px;
+    background-color: #fff;
+    width: 400px;
+}
+
+header .search-bar input {
+    font-family: 2em;
+    border: none;
+    width: 350px;
+    outline: none; /* Ocultar el borde del campo de entrada */
+}
+
+header .search-bar input:focus {
+    outline: none; /* Asegurarse de que el borde no aparezca cuando el campo está enfocado */
+}
+
+header .search-bar button {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+
+header .search-bar button img {
+    height: 30px;
+}
+
+header .user-info {
+    background-color: #444;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 2em;
+}
+
+header .user-details {
+    display: flex;
+    align-items: center;
+}
+
+header .user-text {
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+header .user-text .username {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+}
+
+header .user-text .role {
+    font-size: 0.8em;
+    color: #ccc;
+    margin: 0;
+}
+
+header .user-image img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+header .user-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+header .user-icons i {
+    font-size: 1.5em;
+    color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Header end */
 
 .container {
     display: flex;

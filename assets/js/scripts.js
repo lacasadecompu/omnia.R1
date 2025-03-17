@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Código existente para cargar páginas
     document.querySelectorAll('aside nav ul li a').forEach(function(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -25,4 +26,22 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error:', error));
     }
+
+    // código para la búsqueda
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+
+    function performSearch() {
+        const query = searchInput.value;
+        window.location.href = `search.php?q=${query}`;
+    }
+
+    searchButton.addEventListener('click', performSearch);
+
+    searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del Enter
+            performSearch();
+        }
+    });
 });

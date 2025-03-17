@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
+        $_SESSION['profile_image'] = $user['profile_image']; // Asegúrate de que este campo esté presente
 
         if ($user['2fa_enabled']) {
             // Generar el código de 2FA
