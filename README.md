@@ -1,4 +1,4 @@
-Omnia - Business Management System
+<h1>Omnia - Business Management System</h1>
 
 Omnia es un sistema integral diseñado para la gestión de comercios y negocios en distintos rubros. Permite administrar trabajos, clientes, materiales, turnos, ofreciendo un entorno flexible y escalable para optimizar la operación de los BC (Business Clients).
 
