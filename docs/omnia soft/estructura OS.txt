@@ -1,0 +1,116 @@
+Perfecto, con todo lo que discutimos, vamos a estructurar los archivos de manera clara y organizada. Aquí tienes una propuesta de estructura de carpetas y archivos para el sistema:
+
+### Estructura de Carpetas:
+
+```
+/omnia
+|-- /assets
+|   |-- /css
+|   |   |-- style.css           (Estilos generales)
+|   |-- /js
+|   |   |-- main.js             (Funciones JS generales)
+|   |   |-- ajax.js             (Funciones AJAX específicas)
+|   |-- /images
+|       |-- logo.png            (Imagen del logo u otras imágenes estáticas)
+|
+|-- /includes
+|   |-- /header.php             (Encabezado común para todos los roles)
+|   |-- /footer.php             (Pie de página común para todos los roles)
+|   |-- /sidebar.php            (Sidebar común, con la lógica de mostrar u ocultar elementos según el rol)
+|
+|-- /dashboards
+|   |-- /superadmin
+|   |   |-- super_dashboard_content.php   (Contenido específico para el superadmin)
+|   |
+|   |-- /admin
+|   |   |-- admin_dashboard_content.php    (Contenido específico para el admin)
+|   |
+|   |-- /user
+|   |   |-- user_dashboard_content.php     (Contenido específico para el técnico/usuario)
+|   |
+|   |-- /recepcionista
+|   |   |-- recep_dashboard_content.php    (Contenido específico para el recepcionista)
+|
+|-- /models
+|   |-- /db.php                  (Conexión a la base de datos)
+|   |-- /user.php                (Modelo para manejar usuarios)
+|   |-- /business_client.php     (Modelo para manejar los BC)
+|   |-- /appointments.php        (Modelo para manejar turnos)
+|   |-- /works.php               (Modelo para manejar trabajos)
+|   |-- /material_requests.php   (Modelo para manejar solicitudes de materiales)
+|   |-- /messages.php            (Modelo para manejar mensajes)
+|   |-- /notifications.php       (Modelo para manejar notificaciones)
+|   |-- /audit_logs.php          (Modelo para manejar logs de auditoría)
+|   |-- /work_history.php        (Modelo para manejar el historial de trabajos)
+|
+|-- /controllers
+|   |-- /user_controller.php     (Lógica de usuario y autenticación)
+|   |-- /business_client_controller.php  (Lógica de los BC)
+|   |-- /appointments_controller.php    (Lógica de turnos)
+|   |-- /works_controller.php    (Lógica de trabajos)
+|   |-- /material_requests_controller.php (Lógica de solicitudes de materiales)
+|   |-- /messages_controller.php (Lógica de mensajes)
+|   |-- /notifications_controller.php (Lógica de notificaciones)
+|   |-- /audit_logs_controller.php (Lógica de logs de auditoría)
+|
+|-- /views
+|   |-- /dashboard.php           (Archivo principal para renderizar el dashboard y cargar contenido dinámico)
+|   |-- /login.php               (Pantalla de inicio de sesión)
+|   |-- /logout.php              (Cerrar sesión)
+|   |-- /register.php            (Formulario de registro, si aplica)
+|
+|-- /functions
+|   |-- /utils.php               (Funciones auxiliares)
+|   |-- /auth.php                (Funciones de autenticación)
+|   |-- /permissions.php         (Funciones para verificar permisos según el rol)
+|
+|-- /uploads                     (Carpeta donde se almacenan los archivos subidos como fotos o documentos)
+|
+|-- .htaccess                    (Archivo de configuración del servidor web)
+|-- index.php                    (Archivo principal que redirige a login.php o dashboard.php según el estado de la sesión)
+```
+
+### Descripción de las Carpetas y Archivos:
+
+1. **/assets**: 
+   - Aquí se guardan los archivos estáticos como CSS, JavaScript, y las imágenes del sitio (como el logo).
+
+2. **/includes**:
+   - Contiene los archivos comunes que se incluyen en todas las páginas, como el **header**, el **footer** y el **sidebar**. 
+   - El **sidebar.php** incluye la lógica para mostrar u ocultar elementos dependiendo del rol del usuario.
+
+3. **/dashboards**:
+   - Aquí se guardan los archivos específicos del contenido de cada rol. 
+   - Los archivos dentro de cada subcarpeta (por ejemplo, `/superadmin`, `/admin`, `/user`, `/recepcionista`) tienen el contenido **dinámico** que se va a cargar mediante AJAX, dependiendo del tipo de usuario.
+
+4. **/models**:
+   - Contiene los modelos de la base de datos, que contienen las funciones necesarias para interactuar con las tablas en la base de datos, como insertar, actualizar y eliminar registros.
+
+5. **/controllers**:
+   - Aquí se encuentra la lógica para gestionar las acciones del sistema. Cada archivo de controlador se encarga de una sección (por ejemplo, `user_controller.php` maneja la lógica de los usuarios, `appointments_controller.php` la lógica de los turnos, etc.).
+   - Estos archivos se encargan de recibir las peticiones, interactuar con los modelos y devolver los datos necesarios.
+
+6. **/views**:
+   - Contiene las vistas que el usuario ve. El archivo `dashboard.php` es el principal y contiene la estructura común de la página.
+   - Este archivo incluye AJAX para cargar dinámicamente el contenido de acuerdo al rol del usuario.
+   - También contiene páginas como `login.php`, `logout.php`, y `register.php` para el manejo de autenticación.
+
+7. **/functions**:
+   - Aquí se guardan funciones auxiliares generales, como las de autenticación, verificación de permisos o cualquier lógica reutilizable.
+
+8. **/uploads**:
+   - Carpeta donde se guardan los archivos que los usuarios suben, como imágenes de los trabajos o documentos relacionados con los turnos.
+
+9. **index.php**:
+   - Es el archivo de entrada, que verifica si el usuario está autenticado. Si no lo está, lo redirige al login, y si está autenticado, lo lleva al dashboard correspondiente según su rol.
+
+---
+
+### Flujo de Trabajo:
+- El archivo principal **dashboard.php** será el centro de todas las interacciones.
+  - **AJAX** manejará la carga dinámica de contenido basado en el rol del usuario.
+  - Los archivos como **super_dashboard_content.php** o **admin_dashboard_content.php** contienen las consultas y el contenido para esos roles específicos.
+  - El **sidebar.php** se ajustará dependiendo de las opciones disponibles para cada rol.
+  - El **header.php** y el **footer.php** son comunes a todos los dashboards, lo que garantiza una estructura uniforme.
+
+Con esta estructura, tendrás un sistema bien organizado y fácil de escalar a medida que se agreguen nuevos roles o funcionalidades.

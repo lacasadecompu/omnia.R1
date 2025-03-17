@@ -1,0 +1,47 @@
+CREATE TABLE os_textil (
+    id INT AUTO_INCREMENT PRIMARY KEY,               -- Identificador único del objeto de calzado o textil
+    business_client_id INT NOT NULL,                 -- Relación con el BC (taller de calzado o textil)
+    object_type VARCHAR(50),                         -- Tipo de objeto (Zapato, Zapatilla, Prenda, etc.)
+    size VARCHAR(10),                                -- Talla del calzado o prenda (si aplica)
+    material_type VARCHAR(100),                      -- Material del calzado o prenda (cuero, tela, etc.)
+    alterations TEXT,                                -- Alteraciones solicitadas (ajustes de tamaño, diseño, etc.)
+    client_object_id INT NOT NULL,                   -- Relación con el objeto específico del cliente
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id),  -- Relación con BC
+    FOREIGN KEY (client_object_id) REFERENCES os_client_devices(id)       -- Relación con los objetos del cliente (zapatos, prendas, etc.)
+);
+
+
+
+Rubros del Grupo 4: Textil y Calzado
+Fabricación de Ropa
+
+Sastrería
+Confección de prendas de vestir (camisetas, pantalones, vestidos, etc.)
+Moda y diseño textil
+Reparación de Ropa
+
+Arreglo de prendas (coser, remendar, modificar)
+Reparación de ropa de cuero (chaquetas, abrigos, etc.)
+Ajustes y modificaciones de talla
+Zapatería
+
+Fabricación de calzado
+Reparación de calzado (zapatos, botas, sandalias, etc.)
+Restauración de calzado de lujo o especializado
+Personalización de Ropa y Calzado
+
+Bordado de nombres o logos
+Personalización de calzado (colores, estampados)
+Serigrafía y estampado de ropa
+Accesorios de Ropa
+
+Fabricación y reparación de accesorios textiles (bufandas, cinturones, sombreros)
+Bisutería y complementos hechos a mano
+Telas y Materiales Textiles
+
+Venta y distribución de telas
+Fabricación de materiales textiles como alfombras, cortinas, etc.
+Producción Textil Especializada
+
+Ropa de trabajo (uniformes, ropa laboral, ropa médica, etc.)
+Ropa deportiva o técnica (ropa para deportes, ropa de protección)

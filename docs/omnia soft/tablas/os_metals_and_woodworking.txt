@@ -1,0 +1,25 @@
+CREATE TABLE os_metals_and_woodworking (
+    id INT AUTO_INCREMENT PRIMARY KEY,               -- Identificador único del objeto de carpintería o herrería
+    business_client_id INT NOT NULL,                 -- Relación con el BC (taller de carpintería o herrería)
+    object_type VARCHAR(100),                        -- Tipo de objeto (mueble, estructura metálica, ventana de aluminio, etc.)
+    material_type VARCHAR(100),                      -- Tipo de material (madera, aluminio, hierro, acero, etc.)
+    dimensions VARCHAR(100),                         -- Dimensiones del objeto (si aplica)
+    status VARCHAR(50),                              -- Estado del objeto (recibido, en proceso, listo, etc.)
+    client_object_id INT NOT NULL,                   -- Relación con el objeto específico del cliente
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id),  -- Relación con BC
+    FOREIGN KEY (client_object_id) REFERENCES os_client_devices(id)       -- Relación con los objetos del cliente (mueble, pieza metálica, etc.)
+);
+
+
+¿Qué rubros entrarían en esta tabla?
+Carpintería en madera (fabricación de muebles, puertas, ventanas, estructuras de madera)
+Herrería (trabajos de metal, estructuras metálicas, rejas, portones, escaleras, etc.)
+Soldadura (soldadura de piezas metálicas, reparaciones, fabricaciones)
+Fabricación de estructuras metálicas (soportes, estructuras de edificios, etc.)
+Reparación de herramientas y equipos metálicos (mantenimiento y reparación de herramientas, maquinaria, etc.)
+Carpintería metálica (trabajos en acero, aluminio, hierro, etc.)
+Restauración de piezas antiguas (muebles, metales, estructuras antiguas, etc.)
+Mantenimiento y reparación de cerraduras y sistemas de seguridad
+
+
+

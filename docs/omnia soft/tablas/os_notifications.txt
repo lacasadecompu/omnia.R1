@@ -1,0 +1,23 @@
+Aquí tienes el SQL para las tablas de **notificaciones** y **mensajes**:  
+
+### 📌 Tabla de Notificaciones (`os_notifications`)
+```sql
+CREATE TABLE os_notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipient_id INT NOT NULL,  -- Usuario que recibe la notificación
+    business_client_id INT NOT NULL,  -- Relación con el BC
+    title VARCHAR(255) NOT NULL,  -- Título de la notificación
+    message TEXT NOT NULL,  -- Contenido de la notificación
+    type ENUM('job_status_change', 'payment_reminder', 'new_message', 'inventory_update', 'promotion', 'custom') NOT NULL,
+    is_read BOOLEAN DEFAULT FALSE,  -- Estado de lectura
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (recipient_id) REFERENCES os_users(id) ON DELETE CASCADE,
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id) ON DELETE CASCADE
+);
+```
+```
+
+---
+
+### 🔹 **Explicación rápida**
+✅ `os_notifications` almacena avisos automáticos o manuales que recibe un usuario.  

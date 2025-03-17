@@ -1,0 +1,61 @@
+# **Resumen del Proyecto Omnia & OS**
+
+## **📌 Descripción General**
+**Omnia** es una plataforma que administra comercios clientes que usan **OS** (un sistema de gestión para emprendimientos y comercios). Cada comercio se registra en **Omnia**, paga una suscripción mensual y obtiene acceso a su propia instancia de **OS**.
+
+Los datos de cada comercio cliente dentro de la base de datos se separan mediante un **prefijo único** (ejemplo: `jpolo_usuarios`, `jpolo_trabajos`).
+
+---
+
+## **📌 Base de Datos (BD: `omnia` )** tablas om_ controla los comercios clientes. tablas os_ controla Omnia Soft.
+Se usa **una sola base de datos**, con prefijos para diferenciar los datos de Omnia y de cada comercio.
+
+
+## **📌 Panel de Administración de Omnia**
+### **Estructura**
+✔ **Header (Reutilizable)**
+   - Logo de Omnia (izquierda).  
+   - Campo de búsqueda (centro).  
+   - Usuario activo con foto y botón desplegable (derecha).  
+   - Icono de campanita para notificaciones.  
+
+✔ **Menú Lateral (Vertical, Izquierda)**
+   - 📂 Clientes (lista de comercios registrados).  
+   - 💳 Facturación (gestión de facturas).  
+   - 👤 Usuarios (administradores del panel de Omnia).  
+   - 📜 Historial (logs del sistema).  
+   - 🚪 Cerrar sesión.  
+
+✔ **Dashboard (Centro de la página)**
+   - 📊 Tabla paginada con **10 comercios clientes**, con opción de **filtros**.  
+   - 🏢 Espacio para agregar otros elementos interactivos más adelante.  
+
+---
+
+## **📌 Flujo de Pago con Mercado Pago**
+1️⃣ **El comercio se registra en Omnia** y queda "pendiente de pago".  
+2️⃣ **Se redirige a Mercado Pago para completar la transacción**.  
+3️⃣ **Mercado Pago procesa el pago** y envía una notificación a Omnia.  
+4️⃣ **Si el pago es exitoso**, el comercio se activa y se genera la factura.  
+5️⃣ **Si el pago falla**, el estado queda "pendiente de pago" y debe reintentarlo.  
+
+---
+
+### **📌 Baja de Comercios**
+- **El cierre y borrado de la base de datos es inmediato**.  
+- **Si quiere volver, debe registrarse y pagar nuevamente**.  
+- **Antes de darse de baja, puede exportar sus datos en:**  
+  - 📄 **Excel** (clientes y equipos).  
+  - 🗄 **SQL** (dump de su base de datos).  
+  - 🏢 **Access** (si es compatible).  
+
+---
+
+## **📌 Próximos Pasos**
+✅ Implementar el código para la base de datos y el panel de administración.  
+✅ Integrar Mercado Pago.  
+✅ Desarrollar el sistema de facturación automática con ARCA.  
+
+---
+
+Este documento servirá como referencia en un nuevo chat si es necesario retomar la conversación. 🚀

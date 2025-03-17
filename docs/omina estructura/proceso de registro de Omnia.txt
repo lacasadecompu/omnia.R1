@@ -1,0 +1,39 @@
++--------------------------------------+
+|            Landing Page             |
+|      (Registro de Comercio)         |
++--------------------------------------+
+                |
+                | (Formulario)
+                v
++--------------------------------------+
+|      Registro de Comercio           |
+|   - Razón Social                    |
+|   - Email                            |
+|   - Contraseña                       |
++--------------------------------------+
+                |
+                | (Redirige a MercadoPago)
+                v
++--------------------------------------+
+|     Pago con MercadoPago            |
+|  (Procesamiento de pago)            |
++--------------------------------------+
+                |
+                | (Pago Aprobado)
+                v
++--------------------------------------+
+|     Formulario de Datos             |
+|   - Datos Personales                |
+|   - Datos Comerciales               |
+|   - Rubro                           |
+|   - Nombre de Usuario y Contraseña  |
++--------------------------------------+
+                |
+                | (Formulario Completo)
+                v
++--------------------------------------+
+|       Dashboard de Comercio         |
+|   - Estado de Cuenta                |
+|   - Estado de Pagos                 |
+|   - Acceso a Omnia Soft (OS)       |
++--------------------------------------+

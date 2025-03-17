@@ -1,0 +1,21 @@
+
+### 📌 Tabla de Mensajes (`os_messages`)
+```sql
+CREATE TABLE os_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_id INT NOT NULL,  -- Usuario que envía el mensaje
+    recipient_id INT NOT NULL,  -- Usuario que recibe el mensaje
+    business_client_id INT NOT NULL,  -- Relación con el BC
+    message TEXT NOT NULL,  -- Contenido del mensaje
+    is_read BOOLEAN DEFAULT FALSE,  -- Estado de lectura
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sender_id) REFERENCES os_users(id) ON DELETE CASCADE,
+    FOREIGN KEY (recipient_id) REFERENCES os_users(id) ON DELETE CASCADE,
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id) ON DELETE CASCADE
+);
+```
+---
+
+### 🔹 **Explicación rápida**
+
+✅ `os_messages` permite la comunicación interna entre usuarios dentro del mismo **BC**.  

@@ -1,0 +1,14 @@
+¡Claro! Aquí te dejo el menú actualizado para el **sidebar del recepcionista**, con la opción de "Cerrar sesión" al final:
+
+1. **Dashboard**: Visión general de las tareas y actividades recientes.
+2. **Agenda de Turnos**: Ver y gestionar los turnos programados (tanto en el local como a domicilio).
+3. **Mis Trabajos**: Ver los trabajos que están siendo gestionados (pendientes, en proceso, etc.).
+4. **Notificaciones**: Recibir y gestionar notificaciones relacionadas con cambios de estado de trabajos, repuestos, o recordatorios de citas.
+5. **Mensajes**: Comunicación con el equipo de técnicos o administración para aclarar dudas o coordinar acciones.
+6. **Historial de Trabajos**: Ver un registro de todos los trabajos realizados, su evolución, piezas usadas, etc.
+7. **Solicitar Materiales/Repuestos**: Gestionar los pedidos de repuestos o materiales necesarios para los trabajos.
+8. **Estadísticas**: Ver estadísticas de la actividad del BC que le corresponde.
+9. **Ajustes**: Opciones de personalización o configuración que sean aplicables al rol del recepcionista.
+10. **Cerrar Sesión**: Salir de la sesión actual.
+
+¿Listo para implementar este menú?

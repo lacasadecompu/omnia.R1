@@ -1,0 +1,47 @@
+Estructura General del Dashboard de Usuarios:
+Resumen General:
+
+Estado actual de trabajos (por ejemplo, número de trabajos asignados, en progreso, completados, pendientes).
+Alertas o tareas urgentes (si hay trabajos con retraso o clientes esperando).
+Gestión de Trabajos:
+
+Lista de trabajos asignados: Mostrar los trabajos que el usuario tiene asignados, con detalles como cliente, equipo, estado del trabajo (en curso, esperando repuestos, etc.), tiempo estimado de reparación, y técnico asignado.
+Detalles del trabajo: Acceso a la información completa del trabajo, donde los técnicos pueden actualizar el estado, agregar notas, marcar como completado, o agregar información adicional (como piezas reemplazadas, detalles de la reparación, etc.).
+Filtrar por estado: Permite a los usuarios filtrar los trabajos por su estado (pendientes, en progreso, completados, etc.).
+Solicitud de Materiales/Repuestos:
+
+Para los técnicos y empleados que necesiten repuestos, esta sección les permitirá solicitar materiales y repuestos necesarios para continuar con los trabajos.
+Lista de repuestos solicitados: Los técnicos pueden ver los repuestos que han solicitado y el estado de esas solicitudes.
+Notificaciones: Notificar si los repuestos han sido aprobados, enviados o si falta alguno.
+Historial de Trabajos Realizados:
+
+Un registro de los trabajos que el usuario ha completado en el pasado. Aquí los técnicos pueden revisar trabajos anteriores y agregar información adicional si es necesario (por ejemplo, piezas que fallaron nuevamente, problemas recurrentes, etc.).
+Filtrar por cliente, equipo o fecha para facilitar la búsqueda.
+Notificaciones y Mensajes:
+
+Los técnicos pueden recibir notificaciones sobre nuevos trabajos, tareas urgentes, cambios en el estado de los trabajos o mensajes directos.
+Las mesas de entrada pueden gestionar las comunicaciones internas y asegurarse de que los técnicos y otros empleados estén al tanto de cualquier actualización.
+Accesos a Información y Recursos:
+
+Manual o Guía de Reparaciones: Acceso a recursos que los técnicos pueden necesitar, como manuales, guías de reparación, o tutoriales.
+Instrucciones de seguridad o protocolos que los empleados y técnicos deben seguir.
+Configuración y Perfil:
+
+Los usuarios pueden actualizar su perfil (nombre, datos de contacto, etc.).
+Opciones para cambiar la contraseña y configurar el 2FA si es necesario.
+Soporte y Ayuda:
+
+Los técnicos o mesas de entrada pueden acceder a soporte técnico si encuentran problemas con la plataforma o tienen dudas sobre los trabajos.
+Una sección para enviar solicitudes de ayuda, donde se pueda gestionar el seguimiento de los problemas reportados.
+
+Entendido, aquí te dejo el menú actualizado para los **usuarios técnicos (mecánicos, electricistas, etc.)** sin los puntos 7 y 8:
+
+1. **Dashboard**: Visión general de las tareas y trabajos asignados.
+2. **Mis Trabajos**: Ver los trabajos que tienen asignados, su estado y el progreso de cada uno.
+3. **Historial de Trabajos**: Ver un registro de los trabajos realizados a lo largo del tiempo, con detalles como repuestos utilizados y comentarios.
+4. **Solicitar Materiales/Repuestos**: Realizar pedidos de materiales o repuestos para los trabajos.
+5. **Notificaciones**: Ver notificaciones importantes sobre cambios en el estado de los trabajos, o nuevos trabajos asignados.
+6. **Mensajes**: Comunicación directa con el recepcionista o administrador sobre cualquier duda o necesidad.
+7. **Cerrar Sesión**: Salir de la sesión actual.
+
+Este menú es más conciso y enfocado en las tareas que un técnico necesita para realizar su trabajo. ¿Lo ves bien así?

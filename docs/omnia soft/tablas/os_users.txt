@@ -1,0 +1,22 @@
+Aquí tienes el código SQL actualizado para la tabla **os_users**, incluyendo el campo **lastname**:
+
+```sql
+CREATE TABLE os_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    lastname VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    business_prefix VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
+
+Este código crea la tabla **os_users** con los campos completos que mencionamos, incluyendo el **lastname**. Puedes ejecutar este SQL en tu **phpMyAdmin** para crear la tabla actualizada.
+
+¿Todo claro hasta aquí?

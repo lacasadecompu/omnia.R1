@@ -1,0 +1,112 @@
+¡Claro! Aquí tienes el diagrama de flujo en ASCII con lo que hemos resuelto hasta ahora:
+
+```
+                   +---------------------------+
+                   | Comercio Cliente se registra|
+                   | en Omnia                    |
+                   +---------------------------+
+                             |
+                             v
+                   +---------------------------+
+                   | Sistema genera automáticamente|
+                   | usuario administrador para OS |
+                   +---------------------------+
+                             |
+                             v
+                   +---------------------------+
+                   | Datos del Comercio guardados |
+                   | en la tabla `om_clientes`    |
+                   +---------------------------+
+                             |
+                             v
+                   +---------------------------+
+                   | Usuario administrador para  |
+                   | OS creado en la tabla        |
+                   | `os_usuarios`                |
+                   +---------------------------+
+                             |
+                             v
+            +-------------------------+         +---------------------------+
+            | Comercio Cliente accede   | ----> | Ve en su dashboard en      |
+            | a su panel de Omnia       |         | Omnia sus credenciales de  |
+            | (Con login)               |         | acceso a OS:                |
+            +-------------------------+         | Usuario: EF1234_admin      |
+                             |                   | Contraseña: ************** |
+                             v                   +---------------------------+
+                   +---------------------------+
+                   | Comercio Cliente accede a OS|
+                   | con su usuario administrador|
+                   +---------------------------+
+                             |
+                             v
+                   +---------------------------+
+                   | El comercio gestiona sus    |
+                   | clientes, trabajos, técnicos|
+                   | y mesa de entrada en OS     |
+                   +---------------------------+
+                             |
+                             v
+                   +---------------------------+
+                   | El comercio solo ve sus    |
+                   | propios datos gracias al   |
+                   | filtro `comercio_id`       |
+                   +---------------------------+
+```
+
+### **Resumen del flujo**:
+1. **Comercio Cliente se registra en Omnia**.
+2. El sistema **genera automáticamente un usuario administrador para OS**.
+3. Los datos del comercio se **guardan en `om_clientes`**.
+4. El **usuario administrador de OS** se guarda en `os_usuarios`.
+5. El comercio cliente **accede a su panel en Omnia** y ve sus credenciales de OS.
+6. El comercio **entra a OS** usando esas credenciales.
+7. En OS, el comercio **gestiona sus datos** (clientes, trabajos, técnicos, mesa de entrada).
+8. **Los datos están aislados** por `comercio_id` y cada comercio solo ve lo que le corresponde por filtros y control de sesiones.
+
+
+             
+Sí, el **comercio cliente** debería ver en su dashboard de Omnia el usuario administrador que se generó automáticamente para acceder a OS.  
+
+### **¿Cómo funcionaría?**  
+1. **El comercio se registra en Omnia** → Se guarda en `om_clientes`.  
+2. **El sistema genera automáticamente su usuario administrador para OS**:  
+   - Se crea un usuario en `os_usuarios` con el `comercio_id` como prefijo.  
+   - Se genera una contraseña aleatoria y se almacena.  
+3. **El comercio entra a su dashboard en Omnia** y ve sus credenciales para OS.  
+
+### **Ejemplo de datos generados:**
+#### **Tabla `om_clientes` (comercio registrado en Omnia)**
+```
+id  | comercio_id | nombre_comercio | propietario  | email               | estado
+----+------------+----------------+-------------+---------------------+--------
+1   | EF1234     | Electro Fix    | Juan Pérez  | juan@electrofix.com | Activo
+```
+
+#### **Tabla `os_usuarios` (usuario administrador creado para OS)**
+```
+id  | comercio_id | usuario    | password_hash   | rol         | estado
+----+------------+-----------+----------------+------------+--------
+1   | EF1234     | EF1234_admin | (hash)        | Administrador | Activo
+```
+  
+### **¿Cómo lo vería el comercio en su dashboard de Omnia?**
+Dentro del **panel del comercio cliente en Omnia**, podría haber una sección como:  
+
+**Tus credenciales para OS:**  
+🔹 **Usuario:** `EF1234_admin`  
+🔹 **Contraseña:** *(Generada automáticamente, con opción de cambiarla)*  
+🔹 **Acceso:** [Ingresar a OS](https://os.omniasoft.com)  
+
+Así, el comercio cliente sabe cómo acceder a OS sin necesidad de registrarse manualmente.  
+
+---
+
+### **Ventajas de este método**  
+✅ **Automatización**: No necesita crear el usuario manualmente.  
+✅ **Facilidad de acceso**: Lo ve en su dashboard de Omnia.  
+✅ **Seguridad**: Se genera con un hash de contraseña y solo el comercio cliente puede cambiarla.  
+
+                                                
+                                                
+                                                
+

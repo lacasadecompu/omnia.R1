@@ -1,0 +1,86 @@
+Estadísticas Principales:
+Número de Trabajos
+
+Total de trabajos creados (en un rango de tiempo específico: día, semana, mes).
+Trabajos finalizados vs. trabajos pendientes.
+Trabajos por estado (en curso, esperando repuestos, en espera de pago, etc.).
+Tiempos de Reparación
+
+Tiempo promedio de reparación (por tipo de trabajo o equipo).
+Tiempos de espera (por ejemplo, cuánto tiempo está esperando un cliente por una reparación).
+Trabajos completados dentro del tiempo estimado vs. trabajos demorados.
+Ingresos
+
+Ingresos generados (por trabajo o por periodo).
+Promedio de ingresos por cliente.
+Facturación mensual o anual.
+Pagos pendientes.
+Clientes
+
+Número de nuevos clientes por periodo.
+Clientes recurrentes vs. nuevos clientes.
+Promedio de trabajos por cliente.
+Uso de Materiales/Repuestos
+
+Repuestos más solicitados.
+Porcentaje de trabajos que requieren repuestos.
+Valor total de los materiales/repuestos usados.
+Eficiencia de Técnicos
+
+Número de trabajos completados por técnico.
+Tiempo promedio de reparación por técnico.
+Calificación o feedback de clientes sobre técnicos (si se incluye un sistema de valoraciones).
+Satisfacción del Cliente
+
+Promedio de valoraciones de clientes sobre el servicio.
+Número de reclamos o devoluciones (si aplica).
+Tiempos de respuesta a consultas de clientes.
+
+
+¡Claro! Aquí tienes una lista de los elementos que podría ver el admin del BC en su sidebar, basado en lo que hemos discutido:
+
+1. **Dashboard**:
+   - Resumen del estado general del BC (trabajos en proceso, facturación, repuestos, etc.).
+
+2. **Trabajos**:
+   - Ver todos los trabajos realizados o en curso.
+   - Filtrar trabajos por estado (pendiente, en proceso, finalizado).
+   - Crear nuevo trabajo.
+   - Ver detalles de cada trabajo (servicios aplicados, piezas usadas, diagnósticos, etc.).
+
+3. **Materiales y Repuestos**:
+   - Ver solicitudes de materiales/repuestos.
+   - Hacer un nuevo pedido de materiales.
+   - Ver historial de materiales solicitados.
+   - Ver estado de los repuestos (si están disponibles, en espera, etc.).
+
+4. **Clientes**:
+   - Ver listado de clientes (por nombre, teléfono, tipo de trabajo, etc.).
+   - Ver detalles de cada cliente (trabajos realizados, pagos, etc.).
+   - Crear nuevo cliente.
+
+5. **Facturación**:
+   - Ver las facturas que el BC paga a Omnia, sus vencimientos y el estado de su cuenta.
+
+6. **Estadísticas**:
+   - Ver estadísticas de trabajos realizados (número de trabajos, tipos de servicios, tiempos, etc.).
+   - Ver estadísticas de clientes (número de clientes activos, pagos realizados, etc.).
+
+7. **Pedidos y Citas**:
+   - Ver lista de citas programadas (tanto en el taller como a domicilio).
+   - Crear nueva cita o turno.
+   - Ver historial de citas y detalles de cada una.
+
+8. **Notificaciones**:
+   - Ver notificaciones importantes (estado de trabajos, alertas de repuestos, cambios de prioridad, etc.).
+   - Ver mensajes de otros usuarios del sistema (como técnicos o recepcionistas).
+
+9. **Usuarios**:
+   - Gestionar usuarios del BC (técnicos, recepcionistas, otros admins).
+   - Crear, editar o eliminar usuarios dentro del BC.
+   - Asignar roles a los usuarios dentro del BC.
+
+10. **Cerrar sesión**:
+    - Opción para salir del sistema.
+
+¿Te parece bien esta estructura o hay algo más que te gustaría ajustar o agregar?

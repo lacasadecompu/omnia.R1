@@ -1,0 +1,36 @@
+Gracias por la aclaración. Aquí tienes algunas ideas para el menú del sidebar del superadmin:
+
+1. **Dashboard**: Resumen general de la actividad del sistema, estadísticas globales, pagos, y otros indicadores clave.
+
+2. **Gestión de BC (Business Clients)**: 
+   - Ver listado de BC registrados.
+   - Agregar/editar/eliminar BC.
+   - Ver información detallada de cada BC (responsables, estadísticas, pagos, etc.).
+
+3. **Pagos**:
+   - Ver pagos realizados por los BC.
+   - Gestionar y registrar pagos (si fuera necesario).
+   - Ver historial de pagos y saldo pendiente de cada BC.
+
+4. **Estadísticas**:
+   - Visualización de estadísticas del sistema (número de trabajos, BC activos, usuarios, etc.).
+   - Gráficos de rendimiento, pagos y otros datos relevantes.
+
+5. **Usuarios del Sistema**:
+   - Gestionar roles de usuarios (superadmin, admin, recepcionistas, técnicos, etc.).
+   - Crear, editar o eliminar usuarios.
+
+6. **Auditoría**:
+   - Ver los registros de auditoría (acciones realizadas por usuarios dentro del sistema).
+   - Filtrar por fecha, usuario o tipo de acción.
+
+7. **Configuración Global**:
+   - Configurar parámetros globales del sistema (si fuera necesario).
+   - Cambiar configuraciones de la plataforma.
+
+8. **Soporte**:
+   - Acceso a soporte o preguntas frecuentes.
+
+9. **Cerrar sesión**: Opción para salir del sistema.
+
+Estas son algunas ideas generales. ¿Te gustaría que ajustemos alguna de ellas según tus necesidades específicas?

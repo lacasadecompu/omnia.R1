@@ -1,0 +1,28 @@
+**📌 Listado de las tablas creadas:**  
+
+**os_users** → Usuarios del sistema.  
+**os_business_clients** → Comercios clientes (BC).  
+**os_works** → Trabajos realizados en cualquier rubro.  
+**os_vehicles** → Vehículos (autos, motos, camiones, etc.).  
+**os_textil** → Objetos de textil (zapatillas, ropa, etc.).  
+**os_metals_and_woodworking** → Objetos de herrería, carpintería de madera y aluminio.  
+**os_electronics_and_appliances** → Electrónica, informática y electrodomésticos.  
+**os_billing** → Facturación de los BC hacia el sistema.  
+**os_work_history** → Historial de trabajos realizados a un objeto.  
+**os_statistics** → Datos estadísticos del sistema.  
+**os_appointments** → Turnos y visitas a domicilio o al BC.  
+**os_material_requests** → Pedidos de materiales o repuestos.  
+**os_material_request_items** → Ítems de los pedidos de materiales.  
+**os_audit_logs** → Registro de auditoría de acciones importantes.   
+**os_messages** Mensajes
+**os_notifications** Notificaciones  
+
+---  
+
+ **📊 Análisis general:**  
+🔹 Tenemos una estructura bien segmentada.  
+🔹 La información de los trabajos y objetos está bien distribuida.  
+🔹 Hay control de usuarios, auditoría y seguridad.  
+🔹 Se incluyen módulos adicionales como estadísticas, notificaciones y materiales.  
+🔹 La facturación y los pagos están organizados.  
+🔹 Se pueden gestionar prioridades, turnos y visitas.  

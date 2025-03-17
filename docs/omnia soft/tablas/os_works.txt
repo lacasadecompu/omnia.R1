@@ -1,0 +1,68 @@
+### Tabla `os_works` (trabajos)
+Esta tabla almacenará todos los trabajos realizados para los diferentes BC, sin importar el rubro. Todos los trabajos se gestionan aquí y están relacionados con objetos (como vehículos, electrodomésticos, computadoras, etc.).
+
+CREATE TABLE os_works (
+    id INT AUTO_INCREMENT PRIMARY KEY,           -- Identificador único del trabajo
+    business_client_id INT NOT NULL,             -- Relación con el BC (taller mecánico, etc.)
+    client_object_id INT NOT NULL,               -- Relación con el objeto (vehículo, electrodoméstico, etc.)
+    object_type VARCHAR(50),                     -- Tipo de objeto (Coche, Lavadora, etc.)
+    status ENUM('Pendiente', 'En proceso', 'Finalizado', 'En espera', 'Anulado', 'Para presupuestar') NOT NULL,  -- Estado del trabajo (Pendiente, En proceso, Finalizado, etc.)
+    assigned_to INT,                             -- Técnico asignado al trabajo
+    date_received DATE,                          -- Fecha en la que el trabajo fue recibido
+    date_completed DATE,                         -- Fecha de finalización del trabajo
+    services TEXT,                               -- Servicios aplicados (motor, frenos, limpieza de pc, etc.)
+    parts_used TEXT,                             -- Piezas o repuestos usados
+    diagnosis TEXT,                              -- Diagnóstico y lo que se va a hacer (campo tipo memo)
+    final_report TEXT,                           -- Informe final sobre los servicios realizados (campo tipo memo)
+    photos TEXT,                                 -- Ruta de las fotos adjuntas (limitar a 20 fotos a nivel de lógica)
+    priority ENUM('Baja', 'Media', 'Alta') DEFAULT 'Baja', -- Prioridad del trabajo
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id), -- Relación con la tabla de BC
+    FOREIGN KEY (client_object_id) REFERENCES os_vehicles(id)             -- Relación con la tabla de vehículos
+);
+
+```
+- **`os_works`**: Almacena todos los trabajos realizados en cualquier rubro. Se relaciona con los vehículos (a través de `client_object_id` y `os_vehicles`).
+Con este campo photos, se almacenarán las rutas de las fotos de los trabajos, y la lógica del sistema controlará el número de fotos.
+
+**Relaciones:**
+- En **os_works**, el campo **client_object_id** se relaciona con **os_vehicles** para indicar qué vehículo se está reparando.
+- Los **estados** de los trabajos y los vehículos son independientes, pero ambos siguen una lógica común de **Pendiente, En proceso, Finalizado**, etc.
+-------------
+
+
+
+¡Buena observación! 🔥  
+
+La **prioridad** es clave porque ayuda a organizar los trabajos según su urgencia.  
+Podemos manejarlo de dos maneras:  
+
+### 🔹 **1. Automática según la cantidad de días desde la fecha de ingreso**
+- 🟢 **Baja** → Más de 7 días para completarlo.  
+- 🟡 **Media** → 4 a 7 días restantes.  
+- 🔴 **Alta** → Quedan menos de 3 días.  
+- 🚨 **Urgente** → Trabajo con prioridad extrema (se debe terminar en el día).  
+
+📌 **Esto lo puede calcular el sistema automáticamente** comparando `date_received` con `date_completed`.  
+
+---
+
+### 🔹 **2. Manual (editable por el BC o el técnico)**
+A veces un trabajo que era **"baja"** pasa a **"alta"** porque el cliente lo necesita antes, o llega un repuesto y el trabajo se puede acelerar.  
+
+🛠 **Solución**:  
+- Agregamos un campo `priority` en `os_works`.  
+- Se puede actualizar manualmente en el sistema.  
+- Si no se cambia manualmente, el sistema lo ajusta automáticamente según el tiempo restante.  
+
+---
+
+🔎 **Ejemplo de uso:**  
+
+| ID  | Cliente | Fecha Ingreso | Fecha Estimada | Prioridad |
+|-----|---------|--------------|----------------|-----------|
+| 101 | Juan Pérez | 2025-03-10 | 2025-03-20 | Baja |
+| 102 | Taller Mecánico XYZ | 2025-03-12 | 2025-03-18 | Media |
+| 103 | Electrónica Ramos | 2025-03-15 | 2025-03-17 | Alta |
+| 104 | Sofía Tech | 2025-03-15 | 2025-03-15 | Urgente |
+
+---

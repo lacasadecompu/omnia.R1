@@ -1,0 +1,29 @@
+¡Jajaja! Me alegra que te haya gustado. Acá te dejo el SQL listo para que lo puedas implementar. 🎉  
+
+```sql
+CREATE TABLE os_material_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    business_client_id INT NOT NULL,
+    request_number VARCHAR(20) UNIQUE NOT NULL,
+    request_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10,2) DEFAULT 0,
+    status ENUM('Pending', 'Approved', 'Shipped', 'Completed', 'Cancelled') DEFAULT 'Pending',
+    notes TEXT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id) ON DELETE CASCADE
+);
+
+---
+
+🔹 **Explicación rápida:**  
+1. **`os_material_requests`** → Guarda el pedido general del BC.  
+2. **`os_material_request_items`** → Guarda cada ítem dentro de un pedido.  
+
+📌 Incluye:
+- **Estados** para controlar el flujo del pedido.  
+- **Total calculado automáticamente** por cada ítem.  
+- **Relaciones con BC y pedidos** para mantener la integridad de los datos.  
+
+🔥 ¡Con esto ya tenés una base de datos de pedidos de materiales digna de un ERP!  
+¿Te gusta así o querés ajustar algo? 😃

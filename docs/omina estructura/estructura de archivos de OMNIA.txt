@@ -1,0 +1,71 @@
+Estructura del Proyecto Omnia
+
+/omnia
+├── /assets            	    # Archivos estáticos (CSS, JS, imágenes)
+│   ├── /css                # Archivos CSS
+│   │   └── styles.css      # Archivo principal de estilos
+│   ├── /js                 # Archivos JS
+│   │   ├── main.js         # Script principal
+│   │   └── ajax.js         # Funciones AJAX
+│   └── /images             # Imágenes (logos, iconos, etc.)
+│       └── logo.png        # Logo de Omnia
+├── /config                 # Configuración del sistema
+│   └── db.php              # Conexión a la base de datos
+├── /controllers            # Controladores PHP (lógica del backend)
+│   ├── ComercioController.php  # Lógica de negocios de comercios
+│   ├── PagoController.php      # Lógica de pagos
+│   └── UsuarioController.php   # Lógica de usuarios
+├── /models                 # Modelos PHP (interacción con la base de datos)
+│   ├── ComercioModel.php      # Modelo para la tabla `om_comercios`
+│   ├── PagoModel.php          # Modelo para la tabla `om_pagos`
+│   └── UsuarioModel.php       # Modelo para la tabla `om_usuarios`
+├── /views                  # Vistas (HTML y templates)
+│   ├── /admin               # Vistas del panel de administración
+│   │   ├── dashboard.php     # Página principal del panel
+│   │   ├── comercios.php     # Listado de comercios
+│   │   ├── pagos.php         # Gestión de pagos
+│   │   └── usuarios.php      # Gestión de usuarios
+│   └── /auth                 # Vistas de autenticación
+│       ├── login.php         # Login de admin
+│       └── logout.php        # Logout
+├── /includes               # Archivos comunes y reutilizables
+│   ├── header.php           # Cabecera común (header)
+│   ├── footer.php           # Pie de página común (footer)
+│   └── navbar.php           # Barra de navegación
+├── /public                 # Archivos públicos (index.php, .htaccess)
+│   └── index.php            # Punto de entrada principal
+├── /scripts                # Scripts adicionales (como scripts de migración)
+│   └── setup.php            # Script para la configuración inicial
+└── /logs                   # Archivos de log (si es necesario)
+    └── errors.log           # Archivo de logs de errores
+
+
+
+
+
+Descripción de las carpetas y archivos:
+/assets: Aquí irán los archivos estáticos (CSS, JS, imágenes).
+
+/css: Archivos de estilo CSS para el frontend.
+/js: Archivos de JavaScript, incluyendo los scripts necesarios para las funcionalidades interactivas y AJAX.
+/images: Imágenes utilizadas en el sitio (como logos, íconos, etc.).
+/config: Contiene la configuración del sistema, como la conexión a la base de datos.
+
+db.php: Archivo con la configuración para conectar con la base de datos.
+/controllers: Contendrá la lógica de negocio para gestionar los comercios, pagos y usuarios.
+
+ComercioController.php, PagoController.php, UsuarioController.php: Controladores que manejarán la lógica para cada tipo de entidad.
+/models: Archivos PHP que interactúan directamente con la base de datos.
+
+ComercioModel.php, PagoModel.php, UsuarioModel.php: Modelos que realizarán las consultas a la base de datos y devolverán los datos necesarios.
+/views: Contendrá las vistas que se mostrarán al usuario (archivos HTML o PHP).
+
+/admin: Vistas relacionadas con el panel de administración.
+/auth: Vistas de autenticación (login, logout).
+/includes: Archivos PHP comunes que se incluirán en las vistas, como el encabezado, pie de página y la barra de navegación.
+
+/public: Contendrá los archivos accesibles públicamente, como el archivo principal index.php que será el punto de entrada del sistema.
+
+/scripts: Aquí puedes colocar scripts adicionales para tareas como migraciones o configuraciones iniciales.
+
+/logs: Carpeta donde puedes almacenar los archivos de log (por ejemplo, errores o eventos importantes).

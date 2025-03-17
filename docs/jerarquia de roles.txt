@@ -1,0 +1,36 @@
+📌 **Jerarquía Finalizada**  
+1️⃣ **Superadmin (`role_level = 4`)** → Puede hacer todo:  
+   - Crear, editar y eliminar **Admins** (BC Owners).  
+   - Acceder a métricas generales del sistema.  
+   - Modificar la base de datos si es necesario.  
+   - Gestionar pagos y membresías.  
+   - No puede ser creado por un Admin (sólo otro Superadmin podría hacerlo manualmente en la base).  
+
+2️⃣ **Admin (`role_level = 3`)** → Dueño del BC, maneja su negocio:  
+   - Puede crear, editar y eliminar **Users** (Receptionists, etc.) y **Technicians**.  
+   - No puede crear ni modificar Superadmins ni otros Admins.  
+
+3️⃣ **User (`role_level = 2`)** → Receptionist u otros empleados administrativos:  
+   - Manejan clientes, equipos y asignan trabajos a técnicos.  
+   - No pueden modificar admins ni otros users.  
+
+4️⃣ **Technician (`role_level = 1`)** → Técnicos o empleados del negocio:  
+   - Solo ven y actualizan los trabajos asignados.  
+   - No pueden gestionar clientes ni usuarios.  
+
+---
+
+📌 **Ejemplo en la tabla `os_users`**
+| id | name  | email         | password | role         | role_level | bc_id |
+|----|-------|--------------|----------|-------------|------------|-------|
+| 1  | Root  | root@omnia   | ******   | superadmin  | 4          | NULL  |
+| 2  | Juan  | juan@bc.com  | ******   | admin       | 3          | 10    |
+| 3  | María | maria@bc.com | ******   | receptionist | 2          | 10    |
+| 4  | Luis  | luis@bc.com  | ******   | technician  | 1          | 10    |
+
+🛠 **Reglas Clave:**  
+✅ **Superadmin crea Admins, Users y Techs.**  
+✅ **Admins crean Users y Techs, pero no Superadmins ni otros Admins.**  
+✅ **Users y Techs solo trabajan con lo que les asignan.**  
+
+---

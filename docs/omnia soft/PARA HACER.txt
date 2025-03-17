@@ -1,0 +1,4 @@
+
+Logs más específicos: logs para BC para control de acceso de los usuarios, cambios en los estados de los trabajos, Si se desean hacer auditorías más profundas, tal vez se pueda dividir los logs de acciones (auditoría de cambios) de las acciones de acceso o inicio de sesión, y también llevar un control de los cambios que se hagan sobre los pagos (por ejemplo, cuándo y por quién se marca como pagada una factura).
+
+Soporte técnico: Si en algún momento el sistema incluye un módulo de asistencia remota o soporte técnico (como una mesa de ayuda), podrías agregar una tabla para gestionar tickets de soporte, fechas y estados del ticket.

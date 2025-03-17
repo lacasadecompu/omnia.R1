@@ -1,0 +1,29 @@
+📜 Tabla: om_pagos
+Campo			Tipo de Dato								Descripción
+id			INT (PK, AUTO_INCREMENT)						Identificador único del pago.
+comercio_id		INT									Relación con om_comercios.id.
+monto			DECIMAL(10,2)								Monto del pago realizado.
+moneda			VARCHAR(10)								Tipo de moneda (Ej: "ARS", "USD").
+fecha_pago		TIMESTAMP DEFAULT CURRENT_TIMESTAMP					Fecha y hora en que se realizó el pago.
+metodo_pago		VARCHAR(50)								Método utilizado (Ej: "Mercado Pago", "Transferencia").
+estado			ENUM('pendiente', 'aprobado', 'rechazado') DEFAULT 'pendiente'		Estado del pago.
+codigo_transaccion	VARCHAR(255) UNIQUE							Código de referencia de la transacción.
+fecha_vencimiento	DATE									Fecha hasta la cual el pago cubre el acceso a CTST.
+
+
+📌 Explicación de los Campos
+id → Identificador único del pago.
+comercio_id → Referencia al comercio que realizó el pago.
+monto → Cantidad pagada.
+moneda → Tipo de moneda (por si en el futuro se aceptan pagos en USD, ARS, etc.).
+fecha_pago → Fecha y hora exactas en que se realizó la transacción.
+metodo_pago → Indica cómo se pagó (Ejemplo: Mercado Pago, transferencia bancaria).
+estado → "pendiente" hasta que se confirme, "aprobado" si el pago es válido, "rechazado" si falló.
+codigo_transaccion → Número de referencia único, útil para rastrear pagos con Mercado Pago.
+fecha_vencimiento → Fecha hasta la cual el comercio tiene acceso antes de requerir un nuevo pago.
+
+📌 Flujo de Pago
+Cuando un comercio paga, se crea un registro en om_pagos con estado "pendiente".
+Mercado Pago (o el sistema de cobro) confirma la transacción → Se actualiza a "aprobado".
+Si el pago es exitoso, se actualiza la fecha_vencimiento en om_comercios.
+Si el pago falla o se cancela, el estado queda "rechazado" y el acceso no se renueva.

@@ -1,0 +1,34 @@
+### Tabla `os_vehicles` (vehículos)
+Esta tabla contiene los datos específicos del vehículo que el cliente trae para su reparación o servicio. Incluye todos los vehículos que se reparan en los diferentes BC.
+
+```sql
+CREATE TABLE os_vehicles (
+    id INT AUTO_INCREMENT PRIMARY KEY,               -- Identificador único del vehículo
+    business_client_id INT NOT NULL,                 -- Relación con el BC (taller automotriz)
+    vehicle_type VARCHAR(50),                        -- Tipo de vehículo (coche, moto, tractor)
+    vehicle_brand VARCHAR(100),                      -- Marca del vehículo
+    vehicle_model VARCHAR(100),                      -- Modelo del vehículo
+    vehicle_year INT,                                -- Año de fabricación
+    vehicle_km INT,                                  -- Kilómetros recorridos
+    failure_or_service TEXT,                         -- Falla o servicio solicitado (campo tipo memo)
+    diagnosis TEXT,                                  -- Diagnóstico y lo que se va a hacer
+    final_report TEXT,                               -- Informe final sobre los servicios realizados
+    client_vehicle_id INT NOT NULL,                  -- Relación con el objeto (vehículo)
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id),  -- Relación con BC
+    FOREIGN KEY (client_vehicle_id) REFERENCES os_client_devices(id)       -- Relación con objetos del cliente (vehículo)
+);
+
+```
+
+¿Qué rubros entrarían en esta tabla?
+Reparación de vehículos tradicionales (automóviles, camionetas, motos, camiones, etc.)
+Mantenimiento preventivo de vehículos (cambio de aceite, revisión de frenos, etc.)
+Reparación de vehículos eléctricos (vehículos eléctricos de todo tipo)
+Reparación de vehículos híbridos
+Instalación de accesorios y mejoras (alarmas, cámaras de reversa, sistemas de audio, etc.)
+Diagnóstico y reparaciones electrónicas en vehículos (sistemas de inyección, módulos de control, etc.)
+Reparación de sistemas de aire acondicionado automotriz
+Reparación de neumáticos y alineación
+
+
+-----------

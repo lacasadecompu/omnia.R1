@@ -1,0 +1,33 @@
+CREATE TABLE os_electronics_and_appliances (
+    id INT AUTO_INCREMENT PRIMARY KEY,               -- Identificador único del objeto de electrónica o electrodoméstico
+    business_client_id INT NOT NULL,                 -- Relación con el BC (taller de electrónica o electrodomésticos)
+    object_type VARCHAR(100),                        -- Tipo de objeto (TV, Computadora, Lavarropas, etc.)
+    brand VARCHAR(100),                              -- Marca del objeto
+    model VARCHAR(100),                              -- Modelo del objeto
+    serial_number VARCHAR(100),                      -- Número de serie del objeto (si aplica)
+    fault_description TEXT,                          -- Descripción de la falla o servicio solicitado
+    diagnosis TEXT,                                  -- Diagnóstico y lo que se va a hacer en el trabajo
+    final_report TEXT,                               -- Informe final sobre los servicios realizados
+    client_object_id INT NOT NULL,                   -- Relación con el objeto específico del cliente
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id),  -- Relación con BC
+    FOREIGN KEY (client_object_id) REFERENCES os_client_devices(id)       -- Relación con los objetos del cliente (TV, Computadora, etc.)
+);
+
+Campos para os_electronics_and_appliances:
+id: Identificador único del objeto (dispositivo electrónico, electrodoméstico, computadora, etc.).
+business_client_id: Relación con el comercio cliente (taller de electrónica o informática).
+object_type: Tipo de objeto (TV, computadora, heladera, lavarropas, etc.).
+brand: Marca del objeto (Samsung, LG, Dell, etc.).
+model: Modelo del objeto.
+serial_number: Número de serie del objeto (si aplica).
+fault_description: Descripción de la falla o servicio solicitado (campo tipo memo).
+diagnosis: Diagnóstico del objeto y las acciones que se van a realizar.
+final_report: Informe final sobre los servicios realizados.
+client_object_id: Relación con el objeto específico del cliente (televisor, computadora, etc.).
+
+¿Qué rubros entrarían en esta tabla?
+Reparación de electrodomésticos (lavarropas, heladeras, microondas, aires acondicionados, etc.)
+Reparación de electrónica (televisores, equipos de audio, computadoras, consolas, etc.)
+Reparación de celulares y tablets
+Reparación de instrumentos musicales electrónicos
+Reparación de equipos industriales electrónicos

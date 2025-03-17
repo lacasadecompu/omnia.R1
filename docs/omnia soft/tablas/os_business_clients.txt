@@ -1,0 +1,66 @@
+Perfecto, con esos cambios, la tabla **os_business_clients** queda más completa y detallada. Aquí está la nueva estructura:
+
+### Nueva estructura de la tabla **os_business_clients**:
+
+1. **id**: Identificador único del BC.
+2. **name**: Nombre de fantasía o razón social del negocio.
+3. **slogan**: Eslogan del negocio (opcional).
+4. **logo**: Imagen del logo del negocio (puede ser un campo para almacenar la ruta del archivo).
+5. **contact_name**: Nombre de la persona de contacto (responsable del negocio).
+6. **contact_email**: Correo electrónico de contacto.
+7. **contact_phone**: Teléfono de contacto.
+8. **street**: Calle.
+9. **number**: Altura o número de la calle.
+10. **department**: Departamento (si aplica).
+11. **postal_code**: Código postal.
+12. **neighborhood**: Barrio.
+13. **city**: Localidad o ciudad.
+14. **province**: Provincia.
+15. **country**: País.
+16. **cuit_cuil**: Número de CUIT/CUIL o el equivalente según el país.
+17. **status**: Estado del BC (Activo, Suspendido, Inactivo).
+18. **created_at**: Fecha de creación del BC.
+19. **updated_at**: Fecha de última actualización.
+
+### Ejemplo de la tabla **os_business_clients**:
+
+| id  | name          | slogan       | logo        | contact_name | contact_email       | contact_phone | street    | number | department | postal_code | neighborhood | city       | province   | country | cuit_cuil   | status   | created_at          | updated_at          |
+|-----|---------------|--------------|-------------|--------------|---------------------|---------------|-----------|--------|------------|-------------|--------------|------------|------------|---------|-------------|----------|---------------------|---------------------|
+| 1   | Taller XYZ    | "Tu auto, en buenas manos" | logo1.png   | Juan Pérez   | contacto@xyz.com    | 1234567890    | Calle Ficticia | 123    | -          | 1000        | Centro       | Ciudad XYZ | Provincia A | Argentina | 20-12345678-9 | activo   | 2025-03-01 10:00:00 | 2025-03-01 10:00:00 |
+| 2   | Repuestos ABC | "Repuestos para tu auto"  | logo2.png   | María López  | info@abc.com        | 9876543210    | Calle Real | 456    | -          | 2000        | Barrio ABC   | Ciudad ABC | Provincia B | Argentina | 27-98765432-1 | suspendido | 2025-03-02 11:00:00 | 2025-03-02 11:00:00 |
+
+### Código SQL actualizado para la tabla **os_business_clients**:
+
+```sql
+CREATE TABLE os_business_clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    slogan VARCHAR(255) DEFAULT NULL,
+    logo VARCHAR(255) DEFAULT NULL,
+    contact_name VARCHAR(100) NOT NULL,
+    contact_email VARCHAR(255) NOT NULL,
+    contact_phone VARCHAR(20) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    number VARCHAR(20) NOT NULL,
+    department VARCHAR(100) DEFAULT NULL,
+    postal_code VARCHAR(20) NOT NULL,
+    neighborhood VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    province VARCHAR(100) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    cuit_cuil VARCHAR(50) NOT NULL UNIQUE,
+    status ENUM('activo', 'suspendido', 'inactivo') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
+
+### Explicación de los cambios:
+- **slogan**: Es un campo opcional donde el BC puede agregar su eslogan.
+- **logo**: Un campo donde se almacena la ruta de la imagen del logo del negocio.
+- **Dirección**: Se separaron los campos de la dirección en calle, número, departamento, código postal, barrio, ciudad, provincia y país.
+- **status**: El campo **status** ahora usa un **ENUM** con tres valores posibles: **activo**, **suspendido** (el BC puede ver sus trabajos pero no modificar nada), **inactivo** (el BC no puede ver nada, solo su dash con los datos).
+
+Con esto ya tenemos la tabla de **os_business_clients** lista para integrarse en el sistema.
+
+¿Te parece bien o necesitas ajustar algo más?

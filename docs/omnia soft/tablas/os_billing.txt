@@ -1,0 +1,70 @@
+Aquí tienes el código SQL para crear la tabla de **facturación**:
+
+```sql
+CREATE TABLE os_billing (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    business_client_id INT NOT NULL,  -- Relación con el BC
+    invoice_number VARCHAR(50) NOT NULL,  -- Número de factura
+    invoice_date DATE NOT NULL,  -- Fecha de emisión
+    due_date DATE NOT NULL,  -- Fecha de vencimiento
+    amount DECIMAL(10, 2) NOT NULL,  -- Monto de la factura
+    payment_status ENUM('Pendiente', 'Pagado', 'Vencido') DEFAULT 'Pendiente',  -- Estado de pago
+    payment_date DATE,  -- Fecha de pago (si está pagado)
+    payment_method VARCHAR(50),  -- Método de pago (ej. transferencia, tarjeta)
+    business_client_name VARCHAR(255),  -- Nombre del negocio (relacionado con BC)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Fecha de creación
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  -- Fecha de actualización
+    FOREIGN KEY (business_client_id) REFERENCES os_business_clients(id)  -- Relación con el BC
+);
+```
+
+### Explicación de los campos:
+- **id**: Identificador único de la factura.
+- **business_client_id**: Relación con el **BC** que generó la factura.
+- **invoice_number**: Número único de la factura.
+- **invoice_date**: Fecha de emisión de la factura.
+- **due_date**: Fecha de vencimiento de la factura.
+- **amount**: Monto total de la factura.
+- **payment_status**: Estado del pago de la factura (Pendiente, Pagado, Vencido).
+- **payment_date**: Fecha en que se realizó el pago (si está pagado).
+- **payment_method**: Método de pago utilizado (ej. transferencia, tarjeta, etc.).
+- **business_client_name**: Nombre del negocio del BC (puede facilitar la identificación).
+- **created_at** y **updated_at**: Fechas de creación y última actualización.
+
+La clave foránea **business_client_id** asegura que la factura esté asociada a un **BC** existente.
+
+¿Todo bien con la tabla?
+
+---------
+
+Para que los **BC** puedan ver fácilmente los próximos vencimientos y otras estadísticas relacionadas con su facturación, puedes gestionar la visualización directamente desde la tabla **os_billing** que ya creamos, ya que esa tabla contiene los datos de la factura, incluyendo el **due_date** (fecha de vencimiento) y el **payment_status** (estado de pago). 
+
+El **BC** podría tener una vista o un informe dentro de su dashboard donde se muestren las facturas pendientes, próximas a vencer y las que ya han sido pagadas. Por ejemplo:
+
+1. **Facturas pendientes**: Filtrar las facturas con **payment_status = 'Pendiente'** y que tengan una **due_date** que esté por vencerse o ya vencida.
+2. **Facturas vencidas**: Mostrar las facturas cuyo **payment_status = 'Pendiente'** y cuya **due_date** ya haya pasado.
+3. **Historial de pagos**: Mostrar las facturas con **payment_status = 'Pagado'**, incluyendo la fecha de pago.
+
+No necesitarías una tabla adicional para esto, ya que puedes utilizar consultas SQL que filtren por el estado de la factura y las fechas de vencimiento.
+
+Por ejemplo, una consulta SQL para mostrar las facturas próximas a vencer para un **BC** podría ser:
+
+```sql
+SELECT * 
+FROM os_billing
+WHERE business_client_id = ? 
+AND payment_status = 'Pendiente'
+AND due_date <= CURDATE() + INTERVAL 7 DAY;  -- Facturas vencidas o próximas a vencer en 7 días
+```
+
+Y para mostrar las facturas vencidas:
+
+```sql
+SELECT * 
+FROM os_billing
+WHERE business_client_id = ? 
+AND payment_status = 'Pendiente'
+AND due_date < CURDATE();  -- Facturas vencidas
+```
+
+Esto proporcionará una vista clara dentro del dashboard del **BC** sin necesidad de crear una tabla adicional. ¿Qué te parece esta solución?
