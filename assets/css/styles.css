@@ -24,6 +24,7 @@ header {
 
 header .logo img {
     height: 50px;
+    border-radius: 50px;
 }
 
 .search-bar {
